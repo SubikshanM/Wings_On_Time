@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wings On Time - Dashboards</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('airline.avif') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: white;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .dashboard-button {
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: rebeccapurple;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .dashboard-button:hover {
+      background-color: indigo;
+    }
+
+    .back-btn {
+      margin-top: 40px;
+      padding: 10px 20px;
+      background-color: crimson;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background-color: darkred;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>IBM Cognos Dashboards</h1>
+  
+  <div class="button-container">
+    <a href="https://us3.ca.analytics.ibm.com/bi/?perspective=dashboard&amp;pathRef=.my_folders%2FWings_on_time_dashboard&amp;closeWindowOnLastView=true&amp;ui_appbar=false&amp;ui_navbar=false&amp;shareMode=embedded&amp;action=view&amp;mode=dashboard&amp;subView=model00000196b448fe81_00000001" allow="encrypted-media" allowfullscreen class="dashboard-button" target="_blank">Flight Performance Dashboard</a>
+    <a href="delay_dashboard.html" class="dashboard-button" target="_blank">Delay Analysis Dashboard</a>
+    <a href="passenger_satisfaction.html" class="dashboard-button" target="_blank">Passenger Satisfaction Dashboard</a>
+  </div>
+
+  <a href="project.html" class="back-btn">← Back to Main Dashboard</a>
+</body>
+</html>

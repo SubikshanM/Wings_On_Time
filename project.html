@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wings On Time - Project Description</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #e6ccff;
+      display: flex;
+      min-height: 100vh;
+      color: black;
+    }
+
+    .sidebar {
+      width: 30%;
+      background-color: #d1a3ff;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 60px;
+    }
+
+    .sidebar-btn, .dashboard-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: rebeccapurple;
+      color: white;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .dashboard-btn {
+      display: inline-block;
+      outline: none;
+    }
+
+    .sidebar-btn:hover, .dashboard-btn:hover {
+      background-color: indigo;
+    }
+
+    .members-container {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .member {
+      text-align: center;
+    }
+
+    .member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+    .member h3 {
+      margin: 10px 0 5px;
+      color: black;
+      font-weight: bold;
+    }
+
+    .member p {
+      font-size: 14px;
+      color: black;
+    }
+
+    .profile-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #6a0dad;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .profile-btn:hover {
+      background-color: #4b0082;
+    }
+
+    .content {
+      width: 70%;
+      padding: 40px;
+      background: url('0bbeb10c-bcca-40d0-a141-2d3ea5efa3d9.png') no-repeat center center;
+      background-size: cover;
+      color: black;
+      margin-top: 60px;
+    }
+
+    .content h2 {
+      margin-top: 0;
+      font-size: 26px;
+      font-weight: bold;
+      border-bottom: 2px solid black;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      color: black;
+    }
+
+    .content p {
+      font-size: 18px;
+      line-height: 1.6;
+      padding: 10px 0;
+      color: black;
+    }
+
+    .content strong {
+      font-weight: bold;
+    }
+
+    .member-info {
+      display: none;
+      margin-top: 30px;
+      padding: 15px;
+      border-radius: 10px;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .member-info img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      vertical-align: middle;
+    }
+
+    .member-info h4,
+    .member-info p {
+      color: black;
+      margin: 0;
+    }
+    .top-bar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #d1a3ff;
+      display: flex;
+      justify-content: flex-end;
+      z-index: 999;
+    }
+
+    .logout-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .logout-btn:hover {
+      background-color: #cc0000;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="top-bar">
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+  <div class="sidebar">
+    <a href="dashboard-links.html" class="dashboard-btn">Dashboard</a>
+    <button class="sidebar-btn" onclick="toggleMembers()">Project Members</button>
+
+    <div id="membersSection" class="members-container">
+      <div class="member">
+        <img src="Nithi.jpg" alt="NITHISHA B">
+        <h3>NITHISHA B</h3>
+        <p>Frontend Development</p>
+        <button class="profile-btn" onclick="showProfile('Nithi.jpg', 'NITHISHA', 'Frontend Development')">View Profile</button>
+      </div>
+      <div class="member">
+        <img src="images/rithika.jpg" alt="RITHIKA G">
+        <h3>RITHIKA G</h3>
+        <p>Data Analysis & Visualization</p>
+        <button class="profile-btn" onclick="showProfile('images/rithika.jpg', 'RITHIKA', 'Data Analysis & Visualization')">View Profile</button>
+      </div>
+      <div class="member">
+        <img src="Photo.jpeg" alt="SUBIKSHAN M">
+        <h3>SUBIKSHAN M</h3>
+        <p>Dashboard Integration</p>
+        <button class="profile-btn" onclick="showProfile('Photo.jpeg', 'SUBIKSHAN', 'Dashboard Integration')">View Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2>Project Description</h2>
+
+    <p>
+      The airline industry faces numerous challenges related to punctuality, operational efficiency, and passenger experience. For airlines to stay competitive and provide high-quality service, it's crucial to monitor their performance metrics consistently.
+      Wings on Time is an initiative aimed at creating an insightful and real-time dashboard for airlines to track and visualize key operational performance metrics. The core problem is that airlines often struggle to consolidate data from multiple sources into a unified view, making it difficult for stakeholders (such as operational managers, executives, and customer service teams) to make timely, data-driven decisions. This dashboard will focus on the following key areas:
+    </p>
+
+    <p>
+      <strong>Schedule Adherence:</strong><br>
+      Track the on-time performance of flights in relation to their scheduled departure and arrival times. Identify patterns of delay and highlight flights that consistently fail to meet schedule standards.
+    </p>
+
+    <p>
+      <strong>Delay Frequencies:</strong><br>
+      Provide detailed reports on flight delays, categorizing them by cause (weather, maintenance, staffing, etc.). This will help airlines identify the root causes of delays and take proactive measures to reduce them.
+    </p>
+
+    <p>
+      <strong>Passenger Satisfaction Metrics:</strong><br>
+      Collect data from passenger feedback, surveys, and social media sentiment analysis to gauge the overall customer experience. Metrics could include satisfaction with on-time performance, communication during delays, and quality of onboard services.
+    </p>
+
+    <!-- Member Info Profile -->
+    <div class="member-info" id="memberInfo">
+      <img id="memberImg" src="" alt="Member">
+      <div style="display: inline-block; vertical-align: middle;">
+        <h4 id="memberName">Name</h4>
+        <p id="memberRole">Role</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showProfile(image, name, role) {
+      document.getElementById('memberImg').src = image;
+      document.getElementById('memberName').innerText = name;
+      document.getElementById('memberRole').innerText = role;
+      document.getElementById('memberInfo').style.display = 'block';
+    }
+
+    function toggleMembers() {
+      const membersSection = document.getElementById('membersSection');
+      if (membersSection.style.display === 'none' || membersSection.style.display === '') {
+        membersSection.style.display = 'flex';
+        membersSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        membersSection.style.display = 'none';
+      }
+    }
+    function logout() {
+      // You can customize this to redirect to a login page or show a confirmation
+      alert("You have been logged out.");
+      window.location.href = "login.html"; // Replace with your login or homepage
+    }
+
+  </script>
+</body>
+</html>
